@@ -2,6 +2,7 @@ var fs = require('fs');
 var http = require('http');
 var https = require('https');
 var express = require('express');
+var cors = require('cors');
 var url = require('url');
 var io = require('socket.io');
 import { Log } from './log';
@@ -105,6 +106,7 @@ export class Server {
             }
             next();
         });
+        this.express.use(cors());
 
         if (secure) {
             var httpServer = https.createServer(this.options, this.express);
