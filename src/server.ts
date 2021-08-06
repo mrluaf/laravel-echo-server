@@ -100,12 +100,12 @@ export class Server {
      */
     httpServer(secure: boolean) {
         this.express = express();
-        this.express.use((req, res, next) => {
-            for (var header in this.options.headers) {
-                res.setHeader(header, this.options.headers[header]);
-            }
-            next();
-        });
+        // this.express.use((req, res, next) => {
+        //     for (var header in this.options.headers) {
+        //         res.setHeader(header, this.options.headers[header]);
+        //     }
+        //     next();
+        // });
         this.express.use(cors());
 
         if (secure) {
